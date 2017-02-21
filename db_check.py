@@ -1,3 +1,8 @@
+#################################################################################
+#                                 MY FIRT SCRIPT                                #
+#                                 DRAFT VERSION                                 #
+#################################################################################
+
 import cx_Oracle
 con = cx_Oracle.connect('your_user/users_password@your_db_name')
 print "DB Version:",con.version
