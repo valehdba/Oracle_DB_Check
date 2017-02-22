@@ -1,18 +1,6 @@
 # Oracle_DB_Check(DRAFT)
-This scripts checks followid options in Oracle database
-  -Oracle CDB and PDBs status
-  -Oracle CDB and PDBc version
-  -Oracle Standby archivelog sycnranization
-  -OS disk free size
-  -ASM Diskgroups free size
-  -RAC nodes status
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  --
-  -
-  
+This scripts checks following options in Oracle database
+  -Oracle CDB and PDBs status,space usage
+  -Oracle standby archivelog sycnranization
+
+.....to be continuie
