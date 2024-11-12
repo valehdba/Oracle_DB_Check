@@ -1,0 +1,22 @@
+The first script utilizes three views:
+• v$session: Contains information about active sessions in the database.
+• v$sort_segment_usage: Shows temporary segment usage by session for sorting
+operations.
+• v$sql_id: Stores information about SQL statements executed by sessions (optional, for
+joining with sql_id if desired).
+Explanation:
+• The script filters for ACTIVE sessions (s.status) that are currently using temporary space
+(seg.bytes > 0).
+• It joins the v$session and v$sort_segment_usage views based on the session_id to
+associate session information with temporary segment usage.
+• The script retrieves the following information:
+o s.username: Username of the session owner.
+o s.sid: Session ID.
+o s.serial#: Serial number of the session.
+o s.sql_id: (Optional) SQL ID of the statement using temporary space (requires
+joining with v$sql_id).
+o seg.segment_type: Type of temporary segment (e.g., 'SORT', 'HASH').
+o seg.bytes / 1024 / 1024 AS used_mb: Total temporary space used by the session
+in megabytes (MB).
+o seg.bytes_used / 1024 / 1024 AS used_in_sort_mb: Space used by the session
+specifically for sorting operations in MB.
