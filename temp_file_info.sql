@@ -1,8 +1,12 @@
 --Query temporary file information
-SELECT
- f.file_id,
- f.file_name,
- f.file_type,
- f.tablespace_name,
- f.create_date AS created_time
-FROM dba_temp_files f;
+SET LINESIZE 200
+COLUMN file_name FORMAT A70
+SELECT file_id,
+ file_name,
+ ROUND(bytes/1024/1024/1024) AS size_gb,
+ ROUND(maxbytes/1024/1024/1024) AS max_size_gb,
+ autoextensible,
+ increment_by,
+ status
+FROM dba_temp_files
+ORDER BY file_name;
